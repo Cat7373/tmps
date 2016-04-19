@@ -1,10 +1,13 @@
-[ADT 3]
-! Checksum: vXO2skD37egAcrKzRVhe1A
-! Version: 20151011
-! Title: 过滤增强脚本
-! Homepage: http://www.adtchrome.com/extension/adt-videolist.html
-    ! Match: http
-! Begin: --
+// ==UserScript==
+// @name         [Cat73] 去广告脚本
+// @namespace    http://github.com/Cat7373/
+// @version      0.1
+// @description  自用，额外过滤 Adblock Plus 一些无法过滤的东西
+// @author       Cat7373
+// @match        http://*/*
+// @grant        none
+// ==/UserScript==
+
 if(!document.URL.match(/^http:\/\/v\.baidu\.com|http:\/\/music\.baidu\.com|http:\/\/dnf\.duowan\.com|http:\/\/bbs\.duowan\.com|http:\/\/newgame\.duowan\.com|http:\/\/my\.tv\.sohu\.com/)){
     (function() {
         Function.prototype.bind = function() {
@@ -28,14 +31,10 @@ if(!document.URL.match(/^http:\/\/v\.baidu\.com|http:\/\/music\.baidu\.com|http:
                     'find': /^http:\/\/www\.iqiyi\.com\/player\/cupid\/common\/pps_flvplay_s\.swf/,
                     'replace': 'http://swf.adtchrome.com/pps_20140420.swf'
                 },
-                /*'iqiyi_1': {
-                 'find': /^http:\/\/www\.iqiyi\.com\/player\/cupid\/common\/.+\.swf$/,
-                 'replace': 'http://swf.adtchrome.com/iqiyi_20140624.swf'
-                 },
-                 'iqiyi_2': {
-                 'find': /^http:\/\/www\.iqiyi\.com\/common\/flashplayer\/\d+\/.+\.swf$/,
-                 'replace': 'http://swf.adtchrome.com/iqiyi_20140624.swf'
-                 },*/
+                'iqiyi': {
+                    'find': /^http:\/\/www\.iqiyi\.com\/common\/flashplayer\/\d+\/.+\.swf$/,
+                    'replace': 'http://opengg.guodafanli.com/adkiller/iqiyi5.swf'
+                },
                 'ku6': {
                     'find': /^http:\/\/player\.ku6cdn\.com\/default\/.*\/\d+\/(v|player|loader)\.swf/,
                     'replace': 'http://swf.adtchrome.com/ku6_20140420.swf'
@@ -155,10 +154,7 @@ if(!document.URL.match(/^http:\/\/v\.baidu\.com|http:\/\/music\.baidu\.com|http:
             },
             init: function() {
                 var desc = navigator.mimeTypes['application/x-shockwave-flash'].description.toLowerCase();
-                /*if(desc.indexOf('adobe')>-1){
-                 delete this.rules["iqiyi_1"];
-                 delete this.rules["iqiyi_2"];
-                 }*/
+
                 if(document.URL.indexOf('tv.sohu.com')<=0){
                     delete this.rules["sohu"];
                 }
