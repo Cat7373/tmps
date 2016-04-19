@@ -18,10 +18,11 @@ Function.prototype.bind = function() {
 function A() {}
 A.prototype = {
     rules: {
-        /*'youku_loader': {
-         'find': /^http:\/\/static\.youku\.com\/.*(loader|player_.*)(_taobao)?\.swf/,
-         'replace': 'http://swf.adtchrome.com/loader.swf'
-         },
+        'youkuloader': {
+            'find': /^http:\/\/static\.youku\.com\/.*(loader|player_.*)(_taobao)?\.swf/,
+            'replace': 'http://opengg.guodafanli.com/adkiller/loader.swf'
+        },
+        /*
          'youku_out': {
          'find': /^http:\/\/player\.youku\.com\/player\.php\/.*sid\/(.*)/,
          'replace': 'http://swf.adtchrome.com/loader.swf?VideoIDS=$1'
