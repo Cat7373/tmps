@@ -4,7 +4,7 @@
 // @version      0.1
 // @description  自用，额外过滤 Adblock Plus 一些无法过滤的东西
 // @author       Cat7373
-// @match        http://*/*
+// @match        *://*/*
 // @grant        none
 // ==/UserScript==
 
